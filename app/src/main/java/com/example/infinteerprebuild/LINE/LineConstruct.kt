@@ -1,6 +1,6 @@
 package com.example.infinteerprebuild.LINE
 
-import com.example.infiniteerp.data.remote.response.ListOrderLine
+import com.example.infinteerprebuild.RESPONSE.ListOrderLine
 import com.example.infinteerprebuild.LINE.base.BaseViewLine
 
 interface LineConstruct {

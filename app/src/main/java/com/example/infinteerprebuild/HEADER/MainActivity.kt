@@ -1,9 +1,10 @@
 package com.example.infinteerprebuild.HEADER
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.infiniteerp.data.remote.response.ListOrder
+import com.example.infinteerprebuild.RESPONSE.ListOrder
 import com.example.infinteerprebuild.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,8 +17,23 @@ class MainActivity : AppCompatActivity() {
 
 //      show header
         headerViewModel = HeaderViewModel(this)
-        headerViewModel.showHeader()
+        showLoading()
+        headerViewModel.showHeader("DR")
 
+    }
+
+    fun showLoading() {
+        headerViewModel.isLoading.observe(this) {
+            binding?.apply {
+                if (it) {
+                    pbRelease.visibility = View.VISIBLE
+                    rvHeader.visibility = View.INVISIBLE
+                } else {
+                    pbRelease.visibility = View.GONE
+                    rvHeader.visibility = View.VISIBLE
+                }
+            }
+        }
     }
 
     fun showDataHeader(dataHeader: List<ListOrder?>?) {

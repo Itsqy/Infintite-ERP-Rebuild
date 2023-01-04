@@ -1,7 +1,8 @@
 package com.example.infinteerprebuild.LINE
 
 import android.util.Log
-import com.example.infiniteerp.data.remote.response.LineReponse
+import com.example.infinteerprebuild.RESPONSE.LineReponse
+import com.example.infinteerprebuild.RESPONSE.ListOrderLine
 import com.example.infinteerprebuild.API.ApiConfig
 import com.example.infinteerprebuild.LINE.base.BasePresenterLine
 import retrofit2.Call
@@ -31,7 +32,7 @@ class LineViewModel(var lineActivity: LineActivity) : BasePresenterLine<LineCons
 
                     val responseBody = response.body()
                     if (responseBody != null) {
-                        lineActivity.showDataLine(responseBody.response.data)
+                        lineActivity.showDataLine(responseBody.response.data as List<ListOrderLine>)
                     }
                 } else {
 

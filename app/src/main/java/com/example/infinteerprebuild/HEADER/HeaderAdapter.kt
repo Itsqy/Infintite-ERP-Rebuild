@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.infiniteerp.data.remote.response.ListOrder
+import com.example.infinteerprebuild.RESPONSE.ListOrder
 import com.example.infinteerprebuild.LINE.LineActivity
 import com.example.infinteerprebuild.R
 

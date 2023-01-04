@@ -2,9 +2,10 @@ package com.example.infinteerprebuild.HEADER
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.infiniteerp.data.remote.response.ListOrder
 import com.example.infinteerprebuild.LINE.LineActivity
+import com.example.infinteerprebuild.RESPONSE.ListOrder
 import com.example.infinteerprebuild.databinding.ActivityDetailHeaderBinding
 
 class DetailHeaderActivity : AppCompatActivity() {
@@ -13,8 +14,13 @@ class DetailHeaderActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailHeaderBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.tbApproval)
+        showDetail()
 
 
+    }
+
+    private fun showDetail() {
         val idHeader = intent.getParcelableExtra<ListOrder>("idHeader")
         if (idHeader != null) {
             binding.buttonToLine.text = idHeader.id
@@ -36,5 +42,12 @@ class DetailHeaderActivity : AppCompatActivity() {
             intent.putExtra("id", idHeader)
             startActivity(intent)
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

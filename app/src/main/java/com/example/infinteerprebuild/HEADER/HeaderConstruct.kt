@@ -1,6 +1,6 @@
 package com.example.infinteerprebuild.HEADER
 
-import com.example.infiniteerp.data.remote.response.ListOrder
+import com.example.infinteerprebuild.RESPONSE.ListOrder
 import com.example.infiniteerpRebuild.base.BaseView
 
 interface HeaderConstruct {
@@ -13,7 +13,7 @@ interface HeaderConstruct {
     }
 
     interface Presenter {
-        fun showHeader()
+        fun showHeader(docStatus: String)
 
     }
 }

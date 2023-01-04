@@ -1,4 +1,4 @@
-package com.example.infiniteerp.data.remote.response
+package com.example.infinteerprebuild.RESPONSE
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

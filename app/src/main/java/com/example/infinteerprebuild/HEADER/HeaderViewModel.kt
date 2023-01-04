@@ -1,9 +1,11 @@
 package com.example.infinteerprebuild.HEADER
 
 import android.util.Log
-import com.example.infiniteerp.data.remote.response.PurchaseOrderResponse
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.infiniteerpRebuild.base.BasePresenter
 import com.example.infinteerprebuild.API.ApiConfig
+import com.example.infinteerprebuild.RESPONSE.PurchaseOrderResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -14,17 +16,21 @@ class HeaderViewModel(var mainActivity: MainActivity) : BasePresenter<HeaderCons
         private const val TAG = "LineViewModel"
     }
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
-    override fun showHeader() {
 
-        val service = ApiConfig().getApiService().getAllOrder("demo", "demo")
+    override fun showHeader(docStatus: String) {
+        _isLoading.value = true
+        val service =
+            ApiConfig().getApiService().getAllOrder("demo", "demo", "documentStatus='$docStatus'")
 
         service.enqueue(object : Callback<PurchaseOrderResponse> {
             override fun onResponse(
                 call: Call<PurchaseOrderResponse>,
                 response: Response<PurchaseOrderResponse>
             ) {
-
+                _isLoading.value = false
                 if (response.isSuccessful) {
 
                     val responseBody = response.body()

@@ -3,8 +3,8 @@ package com.example.infinteerprebuild.LINE
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.infiniteerp.data.remote.response.ListOrder
-import com.example.infiniteerp.data.remote.response.ListOrderLine
+import com.example.infinteerprebuild.RESPONSE.ListOrder
+import com.example.infinteerprebuild.RESPONSE.ListOrderLine
 import com.example.infinteerprebuild.databinding.ActivityLineBinding
 
 class LineActivity : AppCompatActivity() {
@@ -21,13 +21,14 @@ class LineActivity : AppCompatActivity() {
 
         if (idHeader != null) {
             lineViewModel.showListLine(idHeader.id)
-//            binding.tvTest.text = idHeader.id
         }
 
 
     }
 
-    fun showDataLine(dataLine: List<ListOrderLine?>?) {
+
+
+    fun showDataLine(dataLine: List<ListOrderLine>) {
         val adapterLine = LineAdapter(dataLine, this)
         binding.rvLine.apply {
             layoutManager = LinearLayoutManager(this@LineActivity)

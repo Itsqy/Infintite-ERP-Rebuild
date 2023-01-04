@@ -1,4 +1,4 @@
-package com.example.infiniteerp.data.remote.response
+package com.example.infinteerprebuild.RESPONSE
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
@@ -13,7 +13,7 @@ data class LineReponse(
 data class OrderLine(
 
     @field:SerializedName("data")
-    val data: List<ListOrderLine?>? = null,
+    val data: List<ListOrderLine>,
 
     @field:SerializedName("status")
     val status: Int,
@@ -32,37 +32,40 @@ data class OrderLine(
 @Parcelize
 data class ListOrderLine(
     @field:SerializedName("lineNo")
-    val lineNo: String,
+    val lineNo: String?,
 
     @field:SerializedName("product\$_identifier")
-    val product: String,
+    val product: String?,
 
     @field:SerializedName("orderedQuantity")
-    val orderedQuantity: String,
+    val orderedQuantity: String?,
 
     @field:SerializedName("orderUOM")
-    val orderUOM: String,
+    val orderUOM: String?,
 
     @field:SerializedName("uOM\$_identifier")
-    val UOM: String,
+    val uom: String?,
 
     @field:SerializedName("businessPartner\$_identifier")
-    val bussinesPartner: String,
+    val bussinesPartner: String?,
 
     @field:SerializedName("lineNetAmount")
-    val lineNetAmount: String,
+    val lineNetAmount: String?,
+
+    @field:SerializedName("unitPrice")
+    val unitPrice: String?,
 
     @field:SerializedName("tax\$_identifier")
-    val tax: String,
+    val tax: String?,
 
     @field:SerializedName("oezGrQuantity")
-    val grQuantity: String,
+    val grQuantity: String?,
 
     @field:SerializedName("invoicedQuantity")
-    val invoicedQuantity: String,
+    val invoicedQuantity: String?,
 
     @field:SerializedName("scheduledDeliveryDate")
-    val scheduledDeliveryDate: String,
+    val scheduledDeliveryDate: String?,
 ) : Parcelable
 
 
